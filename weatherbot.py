@@ -107,7 +107,7 @@ def handle_frequency_selection(call):
         city = result[0]
         cursor.execute("UPDATE users SET interval=? WHERE chat_id=?", (interval_minutes, chat_id))
         conn.commit()
-        bot.send_message(chat_id, f"✅ Вы будете получать обновления погоды в городе {city} каждые {interval_minutes} минут(ы)! ⏰")
+        bot.send_message(chat_id, f"✅ Вы будете получать обновления погоды в городе {city} каждую {interval_minutes} минуту! ⏰")
         schedule_updates(chat_id, city, interval_minutes)
     else:
         bot.send_message(chat_id, "❌ Ошибка при сохранении данных. Пожалуйста, попробуйте снова.")
