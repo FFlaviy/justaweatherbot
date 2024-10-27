@@ -57,7 +57,7 @@ def send_weather_forecast(chat_id, city):
         response = requests.get(f'http://api.weatherapi.com/v1/current.json?key={WEATHER_API_KEY}&q={city}')
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
-        bot.send_message(chat_id, "❌ Произошла ошибка при запросе к WeatherAPI. Пожалуйста, попробуйте позже.")
+        bot.send_message(chat_id, "❌ Город не найден, попробуйте снова.")
         print(f"Ошибка запроса: {e}")
         return
 
